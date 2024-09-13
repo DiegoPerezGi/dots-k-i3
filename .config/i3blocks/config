@@ -1,0 +1,41 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.gturn offithub.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[greetings]
+color=#CA7A79
+command=echo "kathe more ♥ "
+interval=once
+
+[battery]
+command=acpi -b | awk '{print $4}' | sed 's/,//'
+interval=30
+label=Batería:
+
+[network]
+command=~/.config/i3blocks/scripts/network.sh
+interval=5
+markup=pango
+
+
+[time]
+command=date "+%A %d/%m/%Y %H:%M"
+interval=60
+
+[logout]
+align=center
+full_text=Cerrar sesión  
+command=i3-msg exit
+
+[shutdown]
+align=center
+full_text=Apagar  
+command=shutdown now
